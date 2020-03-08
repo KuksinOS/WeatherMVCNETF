@@ -1,0 +1,6 @@
+﻿https://www.codeproject.com/Articles/1173716/Tiny-Weather
+https://www.digitalocean.com/community/tutorials/how-to-build-a-weather-app-in-django
+https://tproger.ru/translations/react-basic-weather-app/
+
+https://www.codeproject.com/Articles/5251155/Global-Weather-React-App-with-ASP-NET-Core-3-0-Par
+https://www.codeproject.com/Articles/5248030/Using-Create-React-App-and-NET-Core-3-0-to-Build-a

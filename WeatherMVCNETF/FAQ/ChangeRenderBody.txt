@@ -1,0 +1,32 @@
+﻿https://stackoverflow.com/questions/10726986/change-renderbody-to-point-to-different-view-mvc3
+https://www.codeproject.com/articles/383145/renderbody-renderpage-and-rendersection-methods-in
+It doesn't point to that view, it merely renders the view that it is given
+
+Your app starts up and goes to the default action on the routing which can be found in Global.asax
+
+You can modify that to default to /Account/LogOn if you wish
+
+public class MvcApplication : System.Web.HttpApplication {
+
+    public static void RegisterGlobalFilters(GlobalFilterCollection filters) {
+        filters.Add(new HandleErrorAttribute());
+    }
+
+    public static void RegisterRoutes(RouteCollection routes) {
+        routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+        //routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
+
+        routes.MapRoute(
+            "Default", // Route name
+            "{controller}/{action}/{id}", // URL with parameters
+            new { controller = "Account", action = "LogOn", id = UrlParameter.Optional } // Parameter defaults
+        );
+    }
+
+    protected void Application_Start() {
+        AreaRegistration.RegisterAllAreas();
+
+        RegisterGlobalFilters(GlobalFilters.Filters);
+        RegisterRoutes(RouteTable.Routes);
+    }
+}
