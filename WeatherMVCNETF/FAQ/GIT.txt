@@ -1,0 +1,10 @@
+﻿Settings -> Repository Settings -> Ignore Files -> Edit
+
+
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/WeatherMVCNETF/Scripts
+/.vs/WeatherMVCNETF/v16
