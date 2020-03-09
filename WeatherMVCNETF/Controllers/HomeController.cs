@@ -13,5 +13,21 @@ namespace WeatherMVCNETF.Controllers
         {
             return View();
         }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+            return PartialView();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+            return PartialView();
+        }
+
+
+
+
     }
 }

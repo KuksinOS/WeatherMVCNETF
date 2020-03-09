@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -24,16 +25,22 @@
         </div>
     </nav>
 
-    <div class="container body-content">
-        @RenderBody()
+    <div class="container body-content main-content" style="margin-top: 60px;margin-left: 60px; padding: 20px;">
+        <div id="MainContent">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/sammyjsrouting")
+<script src="~/Scripts/layout-routing.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

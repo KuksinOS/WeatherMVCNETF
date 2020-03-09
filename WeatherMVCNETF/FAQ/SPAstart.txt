@@ -62,9 +62,9 @@ and check installed NuGet packages in from Template Project -> ASP.NET Web Appli
 
 Install it
 
-16. Add NU GET jQuery.Validation
-17. Add NU GET Microsoft.jQuery.Unobtrusive.Validation
-18. Add NU GET WebGrease
+16. Add NUGET jQuery.Validation
+17. Add NUGET Microsoft.jQuery.Unobtrusive.Validation
+18. Add NUGET WebGrease
 
 19. Replace in _Layout.cshtml
 Bootstrap 3 code :
@@ -120,7 +120,7 @@ Bootstrap 3 code :
 
 on bootstrap 4 code:
 
-    <div class="container body-content main-content">
+    <div class="container body-content main-content" style="margin-top: 60px;margin-left: 60px; padding: 20px;">
         @RenderBody()
         <hr />
         <footer>
@@ -138,3 +138,183 @@ body {
     padding-bottom: 20px;
 }
 
+22. Add NUGET Sammy.js(for Routing)
+23. In BundleConfig.cs -> Add 
+ bundles.Add(new ScriptBundle("~/bundles/sammyjsrouting").Include(
+                        "~/Scripts/sammy-*"));
+In _Layout.cshtml Add
+    @Scripts.Render("~/bundles/sammyjsrouting")
+
+24. Create layout-routing.js file in your project which contains your application routing structure which is shown as below.
+25. Add layout-routing reference in _layout.cshtml page.
+26. In _Layout.cshtml Replace 
+@RenderBody()
+On
+        <div id="MainContent">
+            @RenderBody()
+        </div>
+27. in layout-routing.js add code
+
+var mainContent;
+var titleContent;
+
+$(function () {
+    mainContent = $("#MainContent"); /// render partial views.
+    titleContent = $("title"); // render titles.
+});
+
+var routingApp = $.sammy("#MainContent", function () {
+    
+     
+    this.get("#/Home/About", function (context) {
+        titleContent.html("About");
+        $.get("/Home/About", function (data) {
+            context.$element().html(data);
+        });
+    });
+
+    this.get("#/Home/Contact", function (context) {
+        titleContent.html("Contact");
+        $.get("/Home/Contact", function (data) {
+            context.$element().html(data);
+        });
+    });
+});
+
+$(function () {
+    routingApp.run("#/Student/Index"); // default routing page.
+});
+
+function IfLinkNotExist(type, path) {
+    if (!(type != null && path != null))
+        return false;
+
+    var isExist = true;
+
+    if (type.toLowerCase() == "get") {
+        if (routingApp.routes.get != undefined) {
+            $.map(routingApp.routes.get, function (item) {
+                if (item.path.toString().replace("/#", "#").replace(/\\/g, '').replace("$/", "").indexOf(path) >= 0) {
+                    isExist = false;
+                }
+            });
+        }
+    } else if (type.toLowerCase() == "post") {
+        if (routingApp.routes.post != undefined) {
+            $.map(routingApp.routes.post, function (item) {
+                if (item.path.toString().replace("/#", "#").replace(/\\/g, '').replace("$/", "").indexOf(path) >= 0) {
+                    isExist = false;
+                }
+            });
+        }
+    }
+    return isExist;
+}
+
+
+
+28. Add In Views folder  _ViewStart.cshtml file
+Replace content on
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+29. in Index.cshtml Replace
+
+@{
+    ViewBag.Title = "Index";  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Welcome</h1>
+
+ON
+
+@{
+    ViewBag.Title = "Index";  
+}
+
+<h1>Welcome</h1>
+
+30. In Views->Home-> Add About.cshtml,Contact.cshtml pages
+Move code from :
+ASP.NET Web Application(NET Framework) MVC No Authentication
+
+31. Adding  in HomeController.cs Methods:
+
+       public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+            return PartialView();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+            return PartialView();
+        }
+
+32. in layout-routing.js replace new code
+
+var mainContent;
+var titleContent;
+
+$(function () {
+    mainContent = $("#MainContent"); /// render partial views.
+    titleContent = $("title"); // render titles.
+});
+
+var routingApp = $.sammy("#MainContent", function () {
+
+    //this.get("/", function (context) {
+    //    titleContent.html("Student Page");
+    //    $.get("/Home/Index", function (data) {
+    //        context.$element().html(data);
+    //    });
+    //});
+     
+    this.get("/Home/About", function (context) {
+        titleContent.html("About");
+        $.get("/Home/About", function (data) {
+            context.$element().html(data);
+        });
+    });
+
+    this.get("/Home/Contact", function (context) {
+        titleContent.html("Contact");
+        $.get("/Home/Contact", function (data) {
+            context.$element().html(data);
+        });
+    });
+});
+
+$(function () {
+    //routingApp.run("/Home/Index"); // default routing page.
+    routingApp.run(); // default routing page.
+});
+
+function IfLinkNotExist(type, path) {
+    if (!(type != null && path != null))
+        return false;
+
+    var isExist = true;
+
+    if (type.toLowerCase() == "get") {
+        if (routingApp.routes.get != undefined) {
+            $.map(routingApp.routes.get, function (item) {
+                if (item.path.toString().replace("/#", "#").replace(/\\/g, '').replace("$/", "").indexOf(path) >= 0) {
+                    isExist = false;
+                }
+            });
+        }
+    } else if (type.toLowerCase() == "post") {
+        if (routingApp.routes.post != undefined) {
+            $.map(routingApp.routes.post, function (item) {
+                if (item.path.toString().replace("/#", "#").replace(/\\/g, '').replace("$/", "").indexOf(path) >= 0) {
+                    isExist = false;
+                }
+            });
+        }
+    }
+    return isExist;
+}
