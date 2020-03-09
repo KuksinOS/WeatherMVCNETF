@@ -1,0 +1,2 @@
+﻿https://www.c-sharpcorner.com/article/single-page-application-using-asp-net-mvc-and-jquery/
+
