@@ -77,3 +77,8 @@ C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\obj\Debug\WeatherMVCN
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\obj\Debug\WeatherMVCNETF.csproj.CopyComplete
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\obj\Debug\WeatherMVCNETF.dll
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\obj\Debug\WeatherMVCNETF.pdb
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Antlr3.Runtime.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\System.Web.Optimization.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\WebGrease.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Antlr3.Runtime.pdb
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\System.Web.Optimization.xml

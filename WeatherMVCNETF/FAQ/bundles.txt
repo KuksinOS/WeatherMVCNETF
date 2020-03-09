@@ -1,0 +1,16 @@
+﻿https://metanit.com/sharp/mvc/15.1.php
+https://metanit.com/sharp/mvc/15.2.php
+
+https://stackoverflow.com/questions/23534516/the-name-scripts-does-not-exists-in-the-current-context-in-mvc
+
+Please Follow My Step will Clear this
+
+First
+
+Install Microsoft.AspNet.Web.Optimisation
+Check that the App_Start Folder contains a BundleConfig.cs File.
+Add <namespaces>
+        <add namespace="System.Web.Optimization"/>
+      </namespaces> in Views/web.config File
+Add BundleConfig.RegisterBundles(BundleTable.Bundles); in Global.asax.cs
+Rebuild and Run it
