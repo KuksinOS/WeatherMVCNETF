@@ -8,21 +8,21 @@ $(function () {
 
 var routingApp = $.sammy("#MainContent", function () {
 
-    //this.get("/", function (context) {
-    //    titleContent.html("Student Page");
-    //    $.get("/Home/Index", function (data) {
-    //        context.$element().html(data);
-    //    });
-    //});
+    this.get("/", function (context) {
+        titleContent.html("Main Page");
+        $.get("/Home/_Index", function (data) {
+            context.$element().html(data);
+        });
+    });
      
-    this.get("/Home/About", function (context) {
+    this.get("Home/About", function (context) {
         titleContent.html("About");
         $.get("/Home/About", function (data) {
             context.$element().html(data);
         });
     });
 
-    this.get("/Home/Contact", function (context) {
+    this.get("Home/Contact", function (context) {
         titleContent.html("Contact");
         $.get("/Home/Contact", function (data) {
             context.$element().html(data);

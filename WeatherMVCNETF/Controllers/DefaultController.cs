@@ -6,19 +6,15 @@ using System.Web.Mvc;
 
 namespace WeatherMVCNETF.Controllers
 {
-    public class HomeController : Controller
+    public class DefaultController : Controller
     {
-        // GET: Home
+        // GET: Default
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult _Index()
         {
             ViewBag.Message = "Your application main page.";
             return PartialView();
         }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -30,5 +26,8 @@ namespace WeatherMVCNETF.Controllers
             ViewBag.Message = "Your contact page.";
             return PartialView();
         }
+
+
+
     }
 }
