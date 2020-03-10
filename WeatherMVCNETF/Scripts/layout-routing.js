@@ -28,6 +28,16 @@ var routingApp = $.sammy("#MainContent", function () {
             context.$element().html(data);
         });
     });
+
+    this.get("Weather", function (context) {
+        titleContent.html("Weather");
+        $.get("/Weather/_Index", function (data) {
+            context.$element().html(data);
+        });
+    });
+
+
+
 });
 
 $(function () {

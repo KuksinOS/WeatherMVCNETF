@@ -1,0 +1,3 @@
+﻿1. Adding NuGet Microsoft.AspNet.WebApi.Client (includes System.Net.Http.Formatting, Version=5.2.7.0)
+2. Adding NuGet GraphQL
+

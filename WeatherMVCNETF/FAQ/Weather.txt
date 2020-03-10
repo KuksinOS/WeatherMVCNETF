@@ -4,3 +4,8 @@ https://tproger.ru/translations/react-basic-weather-app/
 
 https://www.codeproject.com/Articles/5251155/Global-Weather-React-App-with-ASP-NET-Core-3-0-Par
 https://www.codeproject.com/Articles/5248030/Using-Create-React-App-and-NET-Core-3-0-to-Build-a
+
+https://www.codeproject.com/Articles/1274513/Angular-Fundamentals-Building-an-Angular-7-Applica
+https://www.codeproject.com/Articles/1276248/Angular-7-with-NET-Core-2-2-Global-Weather-Part-2
+https://www.codeproject.com/Articles/1278829/Angular-7-with-NET-Core-2-2-Global-Weather-Part-3
+

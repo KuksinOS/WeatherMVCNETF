@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+    <h2>Weather</h2>
+
+    <script>
+    $(function () {
+        GetCountries();
+    });
+
+    function GetCountries() {
+        $.get("api/Countries", function (data) {
+            alert('a');
+        });
+    }
+
+    </script>

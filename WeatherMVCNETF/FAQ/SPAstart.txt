@@ -344,4 +344,40 @@ var routingApp = $.sammy("#MainContent", function () {
     });
 });
 
-33.
+33. Install NuGet AutoMapper
+
+34. Run
+System.IO.FileLoadException
+  HResult=0x80131040
+  Message=Could not load file or assembly 'System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+  Source=System.Web.Http
+  StackTrace:
+   at System.Web.Http.HttpConfiguration..ctor(HttpRouteCollection routes)
+   at System.Web.Http.GlobalConfiguration.<>c.<CreateConfiguration>b__11_0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Web.Http.GlobalConfiguration.get_Configuration()
+   at System.Web.Http.GlobalConfiguration.Configure(Action`1 configurationCallback)
+   at WeatherMVCNETF.Global.Application_Start(Object sender, EventArgs e) in C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\Global.asax.cs:line 18
+
+Update All NuGet Packages
+
+Delete References System.Net.Http.Formatting, Version=5.2.3.0
+Add reference on System.Net.Http.Formatting, Version=5.2.7.0 Browse file
+C:\Users\oksana\source\repos\WeatherMVCNETF\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll
+ In Web.config replace on new string:
+ Old
+       <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.3.0" />
+      </dependentAssembly>
+New
+       <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+
+
+Web.config
+View code From Template Project -> ASP.NET Web Application(NET Framework) MVC No Authentication

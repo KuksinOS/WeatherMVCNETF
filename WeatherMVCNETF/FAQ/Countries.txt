@@ -1,0 +1,6 @@
+﻿free countries and cities api
+
+https://www.back4app.com/database/paul-datasets/iso-3166/graphql-playground/all-iso_3166_country_codes
+https://restcountries.eu/#api-endpoints-code
+https://restcountries.eu/rest/v2/all
+https://www.back4app.com/database/paul-datasets/iso-3166/graphql-playground/all-iso_3166_country_codes
