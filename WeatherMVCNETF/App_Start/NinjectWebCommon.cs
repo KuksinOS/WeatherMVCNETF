@@ -5,7 +5,7 @@ namespace WeatherMVCNETF.App_Start
 {
     using System;
     using System.Web;
-
+    using global::AutoMapper;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
@@ -13,6 +13,8 @@ namespace WeatherMVCNETF.App_Start
     using Ninject.Web.Common.WebHost;
     using WeatherMVCNETF.Library.Api;
     using WeatherMVCNETF.Library.Interfaces;
+    using WeatherMVCNETF.Library.Models;
+    using WeatherMVCNETF.Models;
 
     public static class NinjectWebCommon
     {
@@ -64,6 +66,20 @@ namespace WeatherMVCNETF.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            //kernel.Bind<IMapper>().To<Mapper>();
+
+            kernel.Bind<IMapper>()
+             .ToMethod(context =>
+             {
+              var config = new MapperConfiguration(cfg =>
+               {
+                cfg.CreateMap<CountryModel, CountryDisplayModel>();
+                // tell automapper to use ninject when creating value converters and resolvers
+                cfg.ConstructServicesUsing(t => kernel.Get(t));
+               });
+               return config.CreateMapper();
+              }).InSingletonScope();
+
             kernel.Bind<IAPIHelper>().To<APIHelper>();
             kernel.Bind<ICountryEndPoint>().To<CountryEndPoint>();
 

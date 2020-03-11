@@ -16,9 +16,10 @@ namespace WeatherMVCNETF.ApiControllers
         private readonly ICountryEndPoint _countryEndPoint;
         private IMapper _mapper;
 
-        public CountriesController(ICountryEndPoint countryEndPoint)
+        public CountriesController(IMapper mapper, ICountryEndPoint countryEndPoint)
         {
             _countryEndPoint = countryEndPoint;
+            _mapper = mapper;
         }
 
         public async Task<List<CountryDisplayModel>> Get()

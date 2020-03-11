@@ -3,5 +3,25 @@ https://www.c-sharpcorner.com/article/using-automapper-in-mvc-project/
 https://exceptionnotfound.net/using-automapper-with-structuremap-in-asp-net-web-api/
 https://www.exceptionnotfound.net/setting-up-dependency-injection-in-web-api-with-structuremap/
 https://metanit.com/sharp/mvc5/23.7.php
-//111
 https://stackoverflow.com/questions/38661411/configuring-the-latest-version-of-automapper-at-the-global-asax-level-in-an-asp
+https://stackoverflow.com/questions/42812430/automapper-in-webapi-controller
+
+//111
+https://stackoverflow.com/questions/43560555/how-do-i-use-ninject-to-inject-automapper-mapper-in-place-of-imapper
+
+Your bindings are configured to construct a new instance of Mapper for each request, but you've configured a static Mapper. Here's a configuration similar to one I'm using.
+
+kernel.Bind<IMapper>()
+    .ToMethod(context =>
+    {
+        var config = new MapperConfiguration(cfg =>
+        {
+            cfg.AddProfile<MappingProfile>();
+            // tell automapper to use ninject when creating value converters and resolvers
+            cfg.ConstructServicesUsing(t => kernel.Get(t));
+        });
+        return config.CreateMapper();
+    }).InSingletonScope();
+You can then remove your static configuration
+
+Mapper.Initialize(c => c.AddProfile<MappingProfile>());
