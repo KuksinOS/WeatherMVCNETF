@@ -7,7 +7,7 @@ using WeatherMVCNETF.Library.Models;
 
 namespace WeatherMVCNETF.Library.Interfaces
 {
-    interface ICountryEndPoint
+    public interface ICountryEndPoint
     {
         Task<List<CountryModel>> GetAll();
     }

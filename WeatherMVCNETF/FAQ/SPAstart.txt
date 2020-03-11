@@ -381,3 +381,32 @@ New
 
 Web.config
 View code From Template Project -> ASP.NET Web Application(NET Framework) MVC No Authentication
+
+35. Install NuGet Ninject.Web.WebApi version 3.3.0.0
+36. Install NuGet Ninject.Web.WebApi.WebHost version 3.3.0.0
+
+
+In PostMan Get https://localhost:44300/api/Countries
+Get Error
+{
+    "Message": "An error has occurred.",
+    "ExceptionMessage": "An error occurred when trying to create a controller of type 'CountriesController'. Make sure that the controller has a parameterless public constructor.",
+    "ExceptionType": "System.InvalidOperationException",
+    "StackTrace": "   at System.Web.Http.Dispatcher.DefaultHttpControllerActivator.Create(HttpRequestMessage request, HttpControllerDescriptor controllerDescriptor, Type controllerType)\r\n   at System.Web.Http.Controllers.HttpControllerDescriptor.CreateController(HttpRequestMessage request)\r\n   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__15.MoveNext()",
+    "InnerException": {
+        "Message": "An error has occurred.",
+        "ExceptionMessage": "Type 'WeatherMVCNETF.ApiControllers.CountriesController' does not have a default constructor",
+        "ExceptionType": "System.ArgumentException",
+        "StackTrace": "   at System.Linq.Expressions.Expression.New(Type type)\r\n   at System.Web.Http.Internal.TypeActivator.Create[TBase](Type instanceType)\r\n   at System.Web.Http.Dispatcher.DefaultHttpControllerActivator.GetInstanceOrActivator(HttpRequestMessage request, Type controllerType, Func`1& activator)\r\n   at System.Web.Http.Dispatcher.DefaultHttpControllerActivator.Create(HttpRequestMessage request, HttpControllerDescriptor controllerDescriptor, Type controllerType)"
+    }
+}
+
+Adding in App_Start -> NinjectWebCommon.cs
+
+        private static void RegisterServices(IKernel kernel)
+        {
+            kernel.Bind<IAPIHelper>().To<APIHelper>();
+            kernel.Bind<ICountryEndPoint>().To<CountryEndPoint>();
+
+        }
+

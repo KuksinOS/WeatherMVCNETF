@@ -103,3 +103,14 @@ C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\System.Reactive.x
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\System.Net.Http.Formatting.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.Common.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.Common.WebHost.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.WebApi.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.WebApi.WebHost.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\WebActivatorEx.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.Common.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.Common.WebHost.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.WebApi.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF\bin\Ninject.Web.WebApi.WebHost.xml

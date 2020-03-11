@@ -1,0 +1,23 @@
+﻿https://www.dotnettricks.com/learn/dependencyinjection/dependency-injection-in-aspnet-mvc-4-using-unity-ioc-container
+
+https://habr.com/ru/post/176007/
+https://metanit.com/sharp/mvc5/21.2.php
+
+https://metanit.com/sharp/mvc5/21.2.php
+https://www.infoworld.com/article/3191648/how-to-implement-di-in-webapi-using-ninject.html
+https://metanit.com/sharp/mvc5/21.2.php
+https://medium.com/@happylive/how-set-up-ninject-for-web-api-2-900861e29d5b
+//1111
+https://nodogmablog.bryanhogan.net/2016/04/web-api-2-and-ninject-how-to-make-them-work-together/
+
+How Set Up Ninject for Web API 2
+Happy Live
+Happy Live
+Follow
+Feb 2, 2017 · 1 min read
+Today i must develop web api 2 for mobile and web but i want to DI (Dependency Injection). How use DI in web api 2
+Open the NuGet Package Manager Console and add the following
+install-package Ninject.Web.WebApi
+install-package Ninject.Web.WebApi.WebHost
+Open file NinjectWebCommon and In function RegisterService kernel.Bind<IUserRepository>().To<UserRepository>();
+Success…

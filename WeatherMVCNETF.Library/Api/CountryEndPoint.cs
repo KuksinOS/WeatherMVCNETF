@@ -11,7 +11,7 @@ using WeatherMVCNETF.Library.Models;
 
 namespace WeatherMVCNETF.Library.Api
 {
-    public class CountryEndPoint
+    public class CountryEndPoint: ICountryEndPoint
     {
         private IAPIHelper _apiHelper;
         public CountryEndPoint(IAPIHelper apiHelper)
