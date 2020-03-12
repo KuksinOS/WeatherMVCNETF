@@ -73,12 +73,15 @@ namespace WeatherMVCNETF.App_Start
              {
               var config = new MapperConfiguration(cfg =>
                {
-                cfg.CreateMap<CountryModel, CountryDisplayModel>();
+                cfg.CreateMap<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result, CountryDisplayModel>();
                 // tell automapper to use ninject when creating value converters and resolvers
                 cfg.ConstructServicesUsing(t => kernel.Get(t));
                });
                return config.CreateMapper();
               }).InSingletonScope();
+
+            kernel.Bind<IGraphQLHelper>().To<GraphQLHelper>();
+
 
             kernel.Bind<IAPIHelper>().To<APIHelper>();
             kernel.Bind<ICountryEndPoint>().To<CountryEndPoint>();

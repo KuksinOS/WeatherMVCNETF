@@ -5,7 +5,7 @@ https://www.exceptionnotfound.net/setting-up-dependency-injection-in-web-api-wit
 https://metanit.com/sharp/mvc5/23.7.php
 https://stackoverflow.com/questions/38661411/configuring-the-latest-version-of-automapper-at-the-global-asax-level-in-an-asp
 https://stackoverflow.com/questions/42812430/automapper-in-webapi-controller
-
+https://metanit.com/sharp/mvc5/23.4.php
 //111
 https://stackoverflow.com/questions/43560555/how-do-i-use-ninject-to-inject-automapper-mapper-in-place-of-imapper
 

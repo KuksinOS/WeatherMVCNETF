@@ -27,3 +27,17 @@ C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\Sys
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.Abstractions.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.Abstractions.Websocket.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.Serializer.Newtonsoft.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Primitives.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\System.Net.WebSockets.Client.Managed.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.Abstractions.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.Abstractions.Websocket.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Client.Serializer.Newtonsoft.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\GraphQL.Primitives.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\System.Net.WebSockets.Client.Managed.xml
+C:\Users\oksana\source\repos\WeatherMVCNETF\WeatherMVCNETF.Library\bin\Debug\System.Numerics.Vectors.xml

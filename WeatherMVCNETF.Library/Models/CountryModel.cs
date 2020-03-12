@@ -8,7 +8,7 @@ namespace WeatherMVCNETF.Library.Models
 {
     public class CountryModel
     {
-        public string ACL { get; set; }
+        public object ACL { get; set; }
         public string Alpha_2_Code { get; set; }
         public string Alpha_3_Code { get; set; }
         public string English_Short_Name { get; set; }

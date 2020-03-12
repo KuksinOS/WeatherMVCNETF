@@ -1,20 +1,9 @@
-﻿1. Adding NuGet Microsoft.AspNet.WebApi.Client (includes System.Net.Http.Formatting, Version=5.2.7.0)
-2. Add NuGet GraphQL version 2.4.0, he automatic install GraphQL-Parser version  3.0.0.0
-dont update GraphQL-Parser
-3. Get Counties:
-Postman Code:
-
-curl --location --request POST 'https://parseapi.back4app.com/graphql' \
---header 'authority: parseapi.back4app.com' \
---header 'Content-Type: application/json' \
---header 'x-parse-application-id: QVTjSe9SWlhCWFK77Y6PT5w8KV5eme4rr0CLORDK' \
---header 'x-parse-master-key: e1LJLyaPSCjGouaIoCL44WhaXC6hGkdwXB9yh2rb' \
---data-raw '{"query":"query allISO_3166_Country_Codes {\n      iSO_3166_Country_Codes (skip: 0, limit: 1000) {\n        results {\n          ACL\n          Alpha_2_code\n          Alpha_3_code\n          English_short_name\n          Numeric\n          createdAt\n          id\n          updatedAt\n        }\n      }\n    }","variables":null,"operationName":"allISO_3166_Country_Codes"}'
-
-
-
-
-
+﻿https://www.codeproject.com/Questions/1266091/How-do-I-remove-r-n-from-a-JSON-response-in-NET-co
+https://www.newtonsoft.com/json/help/html/QueryJson.htm
+https://dotnetfiddle.net/DNexUe
+https://habr.com/ru/post/482042/
+https://ru.stackoverflow.com/questions/886505/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA-%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B9-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0-jsonconvert-deserializeobject
+https://www.newtonsoft.com/json/help/html/DeserializeObject.htm
 //1111
 https://progtask.ru/json-c-sharp/
 https://progtask.ru/json-c-sharp/
@@ -74,4 +63,3 @@ public class RootObject
 {
     public Data data { get; set; }
 }
-

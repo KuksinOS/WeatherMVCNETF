@@ -1,1 +1,98 @@
 ﻿https://dev.to/dotnet/learn-how-you-can-use-graphql-in-net-core-and-c-4h96
+Add NuGet GraphQL version 2.4.0, he automatic install GraphQL-Parser version  3.0.0.0
+dont update GraphQL-Parser
+//1111
+https://github.com/graphql-dotnet/graphql-client
+https://code-maze.com/consume-graphql-api-with-asp-net-core/
+https://stackoverflow.com/questions/51100305/how-to-send-oauth-token-and-client-id-in-the-request-body-of-graphql-client-endp
+https://code-maze.com/graphql-asp-net-core-tutorial/
+https://code-maze.com/consume-graphql-api-with-asp-net-core/
+https://github.com/graphql-dotnet/graphql-client/issues/36
+
+    public static async Task<GraphQLResponse> GetNewToken(string email, string password)
+        {
+            var tokenRequest = new GraphQLRequest
+            {
+                Query = @$"
+                  {
+                    getUserToken(username: {email} , password: {password})
+                  }"
+            };
+            var endPoint = new GraphQLClient(ApiEndpointURI);
+            var authToken = await endPoint.GetAsync(tokenRequest);
+            Console.WriteLine(JsonConvert.SerializeObject(authToken));
+            return authToken.Data;
+        }
+https://github.com/graphql-dotnet/graphql-client
+
+https://www.red-gate.com/simple-talk/dotnet/net-development/getting-started-with-graphql-in-asp-net/
+https://github.com/graphql-dotnet/graphql-client
+https://owldrivendevelopment.net/2020/02/23/graphql-with-asp-net-core/
+https://owldrivendevelopment.net/2020/02/23/graphql-with-asp-net-core/
+https://medium.com/volosoft/building-graphql-apis-with-asp-net-core-419b32a5305b
+https://www.c-sharpcorner.com/article/graphql-in-net-core-web-api-with-entity-framework-core-part-one/
+https://medium.com/the-no-bullsh-t-guide-to-tech/the-no-bullsh-t-guide-to-graphql-in-net-core-part-4-the-client-5229421b242d
+
+
+
+
+
+//1111
+https://progtask.ru/json-c-sharp/
+https://progtask.ru/json-c-sharp/
+Для того, чтобы получить классы C# из JSON, вы можете воспользоваться сайтом json2csharp.
+http://json2csharp.com/#
+
+{
+    "data": {
+        "iSO_3166_Country_Codes": {
+            "results": [
+                {
+                    "ACL": null,
+                    "Alpha_2_code": "BG",
+                    "Alpha_3_code": "BGR",
+                    "English_short_name": "Bulgaria",
+                    "Numeric": 100,
+                    "createdAt": "2020-02-10T22:17:42.817Z",
+                    "id": "si9rboLA2z",
+                    "updatedAt": "2020-02-10T22:17:42.817Z"
+                },
+                {
+                    "ACL": null,
+                    "Alpha_2_code": "BS",
+                    "Alpha_3_code": "BHS",
+                    "English_short_name": "Bahamas (the)",
+                    "Numeric": 44,
+                    "createdAt": "2020-02-10T22:17:42.817Z",
+                    "id": "e34WgNgpeg",
+                    "updatedAt": "2020-02-10T22:17:42.817Z"
+                }
+]
+}}}
+
+public class Result
+{
+    public object ACL { get; set; }
+    public string Alpha_2_code { get; set; }
+    public string Alpha_3_code { get; set; }
+    public string English_short_name { get; set; }
+    public int Numeric { get; set; }
+    public DateTime createdAt { get; set; }
+    public string id { get; set; }
+    public DateTime updatedAt { get; set; }
+}
+
+public class ISO3166CountryCodes
+{
+    public List<Result> results { get; set; }
+}
+
+public class Data
+{
+    public ISO3166CountryCodes iSO_3166_Country_Codes { get; set; }
+}
+
+public class RootObject
+{
+    public Data data { get; set; }
+}
