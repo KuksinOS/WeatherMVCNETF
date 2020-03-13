@@ -21,11 +21,15 @@ namespace WeatherMVCNETF
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapselect").Include(
+            "~/Scripts/bootstrap-select.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/sammyjsrouting").Include(
                         "~/Scripts/sammy-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-select.min.css",
                       "~/Content/site.css"));
         }
     }

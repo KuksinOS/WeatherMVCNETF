@@ -1,4 +1,8 @@
-﻿install to mvc project
+﻿install
+https://bootstrap-4.ru/docs/4.4/getting-started/introduction/
+
+
+install to mvc project
 https://sensibledev.com/mvc-bootstrap-form-example/
 https://sensibledev.com/mvc-bootstrap-form-example/
 

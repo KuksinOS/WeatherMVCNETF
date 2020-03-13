@@ -8,6 +8,12 @@ namespace WeatherMVCNETF.Controllers
 {
     public class WeatherController : Controller
     {
+        public ActionResult Index()
+        {
+            return PartialView();
+        }
+
+
         // GET: Weather
         public ActionResult _Index()
         {

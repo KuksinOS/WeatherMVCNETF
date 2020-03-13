@@ -1,0 +1,2 @@
+﻿https://stackoverflow.com/questions/32247362/partial-view-with-jquery-ajax-will-not-render
+https://stackoverflow.com/questions/45536844/partial-view-not-rendering-inside-div

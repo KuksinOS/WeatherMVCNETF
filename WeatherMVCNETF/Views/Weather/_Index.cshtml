@@ -1,19 +1,48 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Weather";
 }
 
-    <h2>Weather</h2>
 
-    <script>
+<h2>Weather</h2>
+
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group">
+            <label for="countries"><span class="glyphicon glyphicon-hand-up"></span>Country</label>
+            <select class="selectpicker" id="countries" data-show-subtext="true" data-live-search="true" data-none-selected-text="Select" data-width="fit">
+                <option data-tokens="select">Select</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
     $(function () {
-        GetCountries();
+
+        $('select').selectpicker();
+        $(".dropdown").css("min-width", "200px");
+         GetCountries();
     });
 
     function GetCountries() {
+
+        const elem = $('#countries');
         $.get("api/Countries", function (data) {
-            alert('a');
+
+               data.forEach(function (item) {
+                    var option = $('<option/>');
+                    option.val(item.Alpha_3_Code);
+                    option.text(item.English_Short_Name);
+                    elem.append(option);
+               });
+                
+                elem.selectpicker('refresh');
         });
     }
 
-    </script>
+</script>
