@@ -140,9 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\APIHelper.cs" />
+    <Compile Include="Api\CityEndPoint.cs" />
     <Compile Include="Api\CountryEndPoint.cs" />
     <Compile Include="Api\GraphQLHelper.cs" />
     <Compile Include="Interfaces\IAPIHelper.cs" />
+    <Compile Include="Interfaces\ICityEndPoint.cs" />
     <Compile Include="Interfaces\ICountryEndPoint.cs" />
     <Compile Include="Interfaces\IGraphQLHelper.cs" />
     <Compile Include="Models\CountryModel.cs" />
@@ -154,6 +156,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FAQ\Cities.txt" />
+    <Content Include="FAQ\Countries.txt" />
     <Content Include="FAQ\GetCountriesPostman1.png" />
     <Content Include="FAQ\GetCountriesPostman2.png" />
     <Content Include="FAQ\GraphQL.txt" />

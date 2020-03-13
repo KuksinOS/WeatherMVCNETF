@@ -1,4 +1,8 @@
-﻿https://dev.to/dotnet/learn-how-you-can-use-graphql-in-net-core-and-c-4h96
+﻿//FAQ
+https://hasura.io/docs/1.0/graphql/manual/queries/query-filters.html#the-where-argument
+
+
+https://dev.to/dotnet/learn-how-you-can-use-graphql-in-net-core-and-c-4h96
 Add NuGet GraphQL version 2.4.0, he automatic install GraphQL-Parser version  3.0.0.0
 dont update GraphQL-Parser
 //1111

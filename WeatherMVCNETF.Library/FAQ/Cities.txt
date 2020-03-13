@@ -1,0 +1,56 @@
+﻿https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities/graphql-playground/all-countries
+https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities/world-countries-dataset-api
+//all
+query allCountries {
+      countries (skip: 0, limit: 3) {
+        results {
+          ACL
+          capital
+          cities (skip: 0, limit: 3) {
+            results {
+              id
+            }
+          }
+          code
+          continent {
+            id
+          }
+          createdAt
+          currency
+          emoji
+          emojiU
+          id
+          languages (skip: 0, limit: 3) {
+            results {
+              id
+            }
+          }
+          name
+          native
+          phone
+          updatedAt
+        }
+      }
+    }
+
+
+
+//where
+query allCountries {
+      countries (where: {} ) {
+        results {
+          ACL
+          capital
+          code
+          createdAt
+          currency
+          emoji
+          emojiU
+          id
+          name
+          native
+          phone
+          updatedAt
+        }
+      }
+    }
