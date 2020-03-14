@@ -18,7 +18,16 @@
     </div>
 </div>
 
-
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group">
+            <label for="cities"><span class="glyphicon glyphicon-hand-up"></span>City</label>
+            <select class="selectpicker" id="cities" data-show-subtext="true" data-live-search="true" data-none-selected-text="Select" data-width="fit">
+                <option data-tokens="select">Select</option>
+            </select>
+        </div>
+    </div>
+</div>
 
 
 <script>
@@ -26,8 +35,20 @@
 
         $('select').selectpicker();
         $(".dropdown").css("min-width", "200px");
-         GetCountries();
+        GetCountries();       
     });
+
+
+    $('#countries').on('change', function (e) {
+        
+        if (this.selectedIndex != 0) {
+           // alert(this.selectedIndex);
+                        GetCities(this.options[this.selectedIndex].value);
+          }
+    });
+
+
+
 
     function GetCountries() {
 
@@ -36,8 +57,24 @@
 
                data.forEach(function (item) {
                     var option = $('<option/>');
-                    option.val(item.Alpha_3_Code);
-                    option.text(item.English_Short_Name);
+                    option.val(item.Code);
+                    option.text(item.Name);
+                    elem.append(option);
+               });
+                
+                elem.selectpicker('refresh');
+        });
+    }
+
+        function GetCities(country) {
+            alert(country);
+        const elem = $('#cities');
+        $.get("api/Cities", { code: country },  function (data) {
+
+               data.forEach(function (item) {
+                    var option = $('<option/>');
+                    option.val(item.Id);
+                    option.text(item.Name);
                     elem.append(option);
                });
                 

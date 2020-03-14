@@ -73,9 +73,10 @@ namespace WeatherMVCNETF.App_Start
              {
               var config = new MapperConfiguration(cfg =>
                {
-                cfg.CreateMap<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result, CountryDisplayModel>();
-                // tell automapper to use ninject when creating value converters and resolvers
-                cfg.ConstructServicesUsing(t => kernel.Get(t));
+                cfg.CreateMap<WeatherMVCNETF.Library.Models.Countries.Result, CountryDisplayModel>();
+                cfg.CreateMap<WeatherMVCNETF.Library.Models.Cities.Result, CityDisplayModel>();
+                   // tell automapper to use ninject when creating value converters and resolvers
+                   cfg.ConstructServicesUsing(t => kernel.Get(t));
                });
                return config.CreateMapper();
               }).InSingletonScope();
@@ -85,6 +86,7 @@ namespace WeatherMVCNETF.App_Start
 
             kernel.Bind<IAPIHelper>().To<APIHelper>();
             kernel.Bind<ICountryEndPoint>().To<CountryEndPoint>();
+            kernel.Bind<ICityEndPoint>().To<CityEndPoint>();
 
         }
     }

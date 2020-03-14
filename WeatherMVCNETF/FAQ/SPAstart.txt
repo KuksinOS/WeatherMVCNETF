@@ -412,7 +412,7 @@ Adding in App_Start -> NinjectWebCommon.cs
              {
               var config = new MapperConfiguration(cfg =>
                {
-                cfg.CreateMap<CountryModel, CountryDisplayModel>();
+                cfg.CreateMap<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result, CountryDisplayModel>();
                 // tell automapper to use ninject when creating value converters and resolvers
                 cfg.ConstructServicesUsing(t => kernel.Get(t));
                });

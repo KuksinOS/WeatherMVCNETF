@@ -8,6 +8,6 @@ namespace WeatherMVCNETF.Library.Interfaces
 {
     public interface ICityEndPoint
     {
-        Task<List<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result>> GetAll();
+        Task<List<WeatherMVCNETF.Library.Models.Cities.Result>> GetCities(string code);
     }
 }

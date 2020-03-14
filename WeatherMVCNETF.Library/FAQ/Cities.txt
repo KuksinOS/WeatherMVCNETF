@@ -54,3 +54,273 @@ query allCountries {
         }
       }
     }
+
+
+
+query allCountries {
+      countries (where: {code: {equalTo: "BG"}} ) {
+        results {
+          ACL
+          capital
+          code
+          createdAt
+          currency
+          emoji
+          emojiU
+          id
+          name
+          native
+          phone
+          updatedAt
+        }
+      }
+    }
+
+//where with cities
+
+query allCountries {
+      countries (where: {code: {equalTo: "BG"}} ) {
+        results {
+          ACL
+          capital
+          cities  {
+            results {
+              id
+              name
+              location {
+                latitude
+                longitude
+              }
+            }
+          }
+          code
+          createdAt
+          currency
+          emoji
+          emojiU
+          id
+          name
+          native
+          phone
+          updatedAt
+        }
+      }
+    }
+
+ Для получения схемы классов берем часть данных:
+
+ {
+  "data": {
+    "countries": {
+      "results": [
+        {
+          "ACL": null,
+          "capital": "Sofia",
+          "cities": {
+            "results": [
+              {
+                "id": "09WWK044EM",
+                "name": "Chavdar",
+                "location": {
+                  "latitude": 42.65,
+                  "longitude": 24.05
+                }
+                }
+            ]
+          },
+          "code": "BG",
+          "createdAt": "2019-12-09T21:13:24.159Z",
+          "currency": "BGN",
+          "emoji": "🇧🇬",
+          "emojiU": "U+1F1E7 U+1F1EC",
+          "id": "LHOE9MSsmI",
+          "name": "Bulgaria",
+          "native": "България",
+          "phone": "359",
+          "updatedAt": "2020-02-19T13:43:03.413Z"
+        }
+      ]
+    }
+  }
+}
+
+Для того, чтобы получить классы C# из JSON, вы можете воспользоваться сайтом json2csharp.
+http://json2csharp.com/#
+
+public class Location
+{
+    public double latitude { get; set; }
+    public double longitude { get; set; }
+}
+
+public class Result2
+{
+    public string id { get; set; }
+    public string name { get; set; }
+    public Location location { get; set; }
+}
+
+public class Cities
+{
+    public List<Result2> results { get; set; }
+}
+
+public class Result
+{
+    public object ACL { get; set; }
+    public string capital { get; set; }
+    public Cities cities { get; set; }
+    public string code { get; set; }
+    public DateTime createdAt { get; set; }
+    public string currency { get; set; }
+    public string emoji { get; set; }
+    public string emojiU { get; set; }
+    public string id { get; set; }
+    public string name { get; set; }
+    public string native { get; set; }
+    public string phone { get; set; }
+    public DateTime updatedAt { get; set; }
+}
+
+public class Countries
+{
+    public List<Result> results { get; set; }
+}
+
+public class Data
+{
+    public Countries countries { get; set; }
+}
+
+public class RootObject
+{
+    public Data data { get; set; }
+}
+
+Создадим пространство имен по аналгогии с пространством имен Countries
+namespace WeatherMVCNETF.Library.Models.Cities
+
+
+
+
+упростим запрос  и перенесем его в CityEndPoint:
+
+query allCountries {
+      countries (where: {code: {equalTo: "BG"}} ) {
+        results {
+          cities  {
+            results {
+              id
+              name
+              location {
+                latitude
+                longitude
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+Можно отдельно запрос к citties где параметром страны будет id из allCountries
+https://www.back4app.com/database/tag/cities
+https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities/graphql-playground/all-cities
+
+query allCities {
+      cities (skip: 0, limit: 3) {
+        results {
+          ACL
+          adminCode
+          altName
+          cityId
+          country {
+            id
+          }
+          createdAt
+          id
+          isCapital
+          location {
+            latitude
+            longitude
+          }
+          name
+          population
+          updatedAt
+        }
+      }
+    }
+
+            //var query = new GraphQLRequest
+            //{
+            //    Query = @"
+            //    query allCountries {
+            //      countries (skip: 0, limit: 1) {
+            //        results {
+            //          cities  {
+            //             results {
+            //             id
+            //             name
+            //             location {
+            //               latitude
+            //               longitude
+            //              }
+            //           }
+            //         }
+            //       }
+            //      }
+            //     }",
+            //    Variables = null,
+            //    OperationName = "allCountries"
+            //};
+
+            //works
+            string code = "\"BG\"";
+
+            var query = new GraphQLRequest
+            {
+                Query = @"
+                query allCountries {
+                  countries (where: {code: {equalTo:"  + code + @"}} ) {
+                    results {
+                      cities  {
+                         results {
+                         id
+                         name
+                         location {
+                           latitude
+                           longitude
+                          }
+                       }
+                     }
+                   }
+                  }
+                 }",
+                Variables = null,
+                OperationName = "allCountries"
+            };
+
+            //not works
+            string code = "\"BG\"";
+            var query = new GraphQLRequest
+            {
+                Query = @"
+                query allCountries($droidId: String!) {
+                  countries (where: {code: {equalTo:$droidId}} ) {
+                    results {
+                      cities  {
+                         results {
+                         id
+                         name
+                         location {
+                           latitude
+                           longitude
+                          }
+                       }
+                     }
+                   }
+                  }
+                 }",
+                Variables = @"{ droidId : " + code + @" }",
+                OperationName = "allCountries"
+            };

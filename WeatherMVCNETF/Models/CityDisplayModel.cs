@@ -5,9 +5,9 @@ using System.Web;
 
 namespace WeatherMVCNETF.Models
 {
-    public class CountryDisplayModel
+    public class CityDisplayModel
     {
-        public string Code { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
     }
 }

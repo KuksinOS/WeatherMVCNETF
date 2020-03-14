@@ -24,13 +24,12 @@ namespace WeatherMVCNETF.ApiControllers
 
         public async Task<List<CountryDisplayModel>> Get()
         {
-
             return await LoadCountries();
         }
 
         private async Task<List<CountryDisplayModel>> LoadCountries()
         {
-            var countryList = await _countryEndPoint.GetAll();
+            var countryList = await _countryEndPoint.GetCountries();
             var countries = _mapper.Map<List<CountryDisplayModel>>(countryList);
 
             return countries;

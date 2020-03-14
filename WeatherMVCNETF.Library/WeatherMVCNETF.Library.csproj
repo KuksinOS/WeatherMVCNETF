@@ -147,7 +147,8 @@
     <Compile Include="Interfaces\ICityEndPoint.cs" />
     <Compile Include="Interfaces\ICountryEndPoint.cs" />
     <Compile Include="Interfaces\IGraphQLHelper.cs" />
-    <Compile Include="Models\CountryModel.cs" />
+    <Compile Include="Models\Cities.cs" />
+    <Compile Include="Models\Countries.cs" />
     <Compile Include="Models\iSO_3166_Country_Codes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -158,6 +159,7 @@
   <ItemGroup>
     <Content Include="FAQ\Cities.txt" />
     <Content Include="FAQ\Countries.txt" />
+    <Content Include="FAQ\GetCountriesIE.png" />
     <Content Include="FAQ\GetCountriesPostman1.png" />
     <Content Include="FAQ\GetCountriesPostman2.png" />
     <Content Include="FAQ\GraphQL.txt" />

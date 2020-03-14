@@ -9,6 +9,7 @@ namespace WeatherMVCNETF.Library.Interfaces
 {
     public interface ICountryEndPoint
     {
-        Task<List<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result>> GetAll();
+        Task<List<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result>> GetiSO3166Countries();
+        Task<List<WeatherMVCNETF.Library.Models.Countries.Result>> GetCountries();
     }
 }

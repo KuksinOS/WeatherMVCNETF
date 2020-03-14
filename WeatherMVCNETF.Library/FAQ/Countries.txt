@@ -54,9 +54,179 @@ query allISO_3166_Country_Codes {
       }
     }
 
+
+//1111
+https://progtask.ru/json-c-sharp/
+https://progtask.ru/json-c-sharp/
+Для того, чтобы получить классы C# из JSON, вы можете воспользоваться сайтом json2csharp.
+http://json2csharp.com/#
+
+{
+    "data": {
+        "iSO_3166_Country_Codes": {
+            "results": [
+                {
+                    "ACL": null,
+                    "Alpha_2_code": "BG",
+                    "Alpha_3_code": "BGR",
+                    "English_short_name": "Bulgaria",
+                    "Numeric": 100,
+                    "createdAt": "2020-02-10T22:17:42.817Z",
+                    "id": "si9rboLA2z",
+                    "updatedAt": "2020-02-10T22:17:42.817Z"
+                },
+                {
+                    "ACL": null,
+                    "Alpha_2_code": "BS",
+                    "Alpha_3_code": "BHS",
+                    "English_short_name": "Bahamas (the)",
+                    "Numeric": 44,
+                    "createdAt": "2020-02-10T22:17:42.817Z",
+                    "id": "e34WgNgpeg",
+                    "updatedAt": "2020-02-10T22:17:42.817Z"
+                }
+]
+}}}
+
+public class Result
+{
+    public object ACL { get; set; }
+    public string Alpha_2_code { get; set; }
+    public string Alpha_3_code { get; set; }
+    public string English_short_name { get; set; }
+    public int Numeric { get; set; }
+    public DateTime createdAt { get; set; }
+    public string id { get; set; }
+    public DateTime updatedAt { get; set; }
+}
+
+public class ISO3166CountryCodes
+{
+    public List<Result> results { get; set; }
+}
+
+public class Data
+{
+    public ISO3166CountryCodes iSO_3166_Country_Codes { get; set; }
+}
+
+public class RootObject
+{
+    public Data data { get; set; }
+}
+
+
+
+
+
     https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities
     https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities/graphql-playground/all-countries
     https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities/world-countries-dataset-api
 
 
+
+
+    //2
+    Получаем все страны
+    https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities/world-countries-dataset-api
+    https://www.back4app.com/database/back4app/list-of-all-continents-countries-cities/graphql-playground/all-countries
+
+    query allCountries {
+      countries  {
+        results {
+          ACL
+          capital
+          code
+          createdAt
+          currency
+          emoji
+          emojiU
+          id
+          name
+          native
+          phone
+          updatedAt
+        }
+      }
+    }
+
+    Для получения схемы классов берем часть данных:
+{
+  "data": {
+    "countries": {
+      "results": [
+        {
+          "ACL": null,
+          "capital": "Andorra la Vella",
+          "code": "AD",
+          "createdAt": "2019-12-09T21:04:54.350Z",
+          "currency": "EUR",
+          "emoji": "🇦🇩",
+          "emojiU": "U+1F1E6 U+1F1E9",
+          "id": "sv7fjDVISU",
+          "name": "Andorra",
+          "native": "Andorra",
+          "phone": "376",
+          "updatedAt": "2020-02-19T13:42:38.781Z"
+        }        ]
+        }}}
+
+Для того, чтобы получить классы C# из JSON, вы можете воспользоваться сайтом json2csharp.
+http://json2csharp.com/#
+
+
+public class Result
+{
+    public object ACL { get; set; }
+    public string capital { get; set; }
+    public string code { get; set; }
+    public DateTime createdAt { get; set; }
+    public string currency { get; set; }
+    public string emoji { get; set; }
+    public string emojiU { get; set; }
+    public string id { get; set; }
+    public string name { get; set; }
+    public string native { get; set; }
+    public string phone { get; set; }
+    public DateTime updatedAt { get; set; }
+}
+
+public class Countries
+{
+    public List<Result> results { get; set; }
+}
+
+public class Data
+{
+    public Countries countries { get; set; }
+}
+
+public class RootObject
+{
+    public Data data { get; set; }
+}
+
+Создадим пространство имен по аналгогии с пространством имен Countries
+namespace WeatherMVCNETF.Library.Models.Countries
+
+
+Добавим в модель namespace WeatherMVCNETF.Library.Models.Countries - >
+поле Cities ->
+
+    public class Result
+    {
+        public object ACL { get; set; }
+        public string capital { get; set; }
+        public string code { get; set; }
+        public DateTime createdAt { get; set; }
+        public string currency { get; set; }
+        public string emoji { get; set; }
+        public string emojiU { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public string native { get; set; }
+        public string phone { get; set; }
+        public DateTime updatedAt { get; set; }
+        public WeatherMVCNETF.Library.Models.Cities.Cities cities { get; set; }
+    }
 

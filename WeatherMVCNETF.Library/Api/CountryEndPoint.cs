@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherMVCNETF.Library.Interfaces;
 using WeatherMVCNETF.Library.Models;
+using WeatherMVCNETF.Library.Models.Countries;
 
 namespace WeatherMVCNETF.Library.Api
 {
@@ -26,7 +27,55 @@ namespace WeatherMVCNETF.Library.Api
             
         }
 
-        public async Task<List<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result>> GetAll()
+        public async Task<List<WeatherMVCNETF.Library.Models.Countries.Result>> GetCountries()
+        {
+            string apiCountries = ConfigurationManager.AppSettings["apiCountries"];
+            string endPoint = apiCountries + "/graphql";
+
+            _graphQLHelper.InitializeClient(endPoint);
+            _graphQLHelper.GraphQLClient.HttpClient.DefaultRequestHeaders.Accept.Clear();
+            _graphQLHelper.GraphQLClient.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _graphQLHelper.GraphQLClient.HttpClient.DefaultRequestHeaders.Add("authority", "parseapi.back4app.com");
+            _graphQLHelper.GraphQLClient.HttpClient.DefaultRequestHeaders.Add("x-parse-application-id", "mxsebv4KoWIGkRntXwyzg6c6DhKWQuit8Ry9sHja");
+            _graphQLHelper.GraphQLClient.HttpClient.DefaultRequestHeaders.Add("x-parse-master-key", "TpO0j3lG2PmEVMXlKYQACoOXKQrL3lwM0HwR9dbH");
+
+
+            var query = new GraphQLRequest
+            {
+                Query = @"
+                query allCountries {
+                  countries {
+                    results {
+                      ACL
+                      capital
+                      code
+                      createdAt
+                      currency
+                      emoji
+                      emojiU
+                      id
+                      name
+                      native
+                      phone
+                      updatedAt
+                    }
+                  }
+                }",
+                Variables = null,
+                OperationName = "allCountries"
+            };
+
+            // var response = await _graphQLHelper.GraphQLClient.SendQueryAsync<object>(query);
+            // var response = await _graphQLHelper.GraphQLClient.SendQueryAsync<JObject>(query);
+            //var response = await _graphQLHelper.GraphQLClient.SendQueryAsync<dynamic>(query);
+            //var response = await _graphQLHelper.GraphQLClient.SendQueryAsync<GraphQLResponse<Data>>(query);
+            var response = await _graphQLHelper.GraphQLClient.SendQueryAsync<WeatherMVCNETF.Library.Models.Countries.Data>(query);
+
+            // return null;
+            return response.Data.countries.results;
+        }
+
+        public async Task<List<WeatherMVCNETF.Library.Models.ISO3166CountryCodes.Result>> GetiSO3166Countries()
         {
             string apiCountries = ConfigurationManager.AppSettings["apiCountries"];
             string endPoint = apiCountries + "/graphql";
