@@ -440,6 +440,7 @@
   <ItemGroup>
     <Compile Include="ApiControllers\CitiesController.cs" />
     <Compile Include="ApiControllers\CountriesController.cs" />
+    <Compile Include="ApiControllers\WeathersController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

@@ -1,0 +1,8 @@
+﻿https://carldesouza.com/httpclient-getasync-postasync-sendasync-c/
+https://stackoverflow.com/questions/27108264/c-sharp-how-to-properly-make-a-http-web-get-request
+https://support.microsoft.com/en-au/help/307023/how-to-make-a-get-request-by-using-visual-c
+http://zetcode.com/csharp/httpclient/
+https://stackoverflow.com/questions/34889487/httpclient-adding-parameters-to-get-request
+
+            var uriString = string.Format("{0}/{1}", "/data/2.5/weather", nomeServico);
+            var result = await GetAsync<YourModel>(uriString);

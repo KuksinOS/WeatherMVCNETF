@@ -1,0 +1,145 @@
+﻿https://openweathermap.org/current
+Thank you for subscribing to Free OpenWeatherMap!
+
+API key:
+- Your API key is e206053cc691d48f3deec1b17235a525
+- Within the next couple of hours, it will be activated and ready to use
+- You can later create more API keys on your account page
+- Please, always use your API key in each API call
+
+Endpoint:
+- Please, use the endpoint api.openweathermap.org for your API calls
+- Example of API call:
+api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=e206053cc691d48f3deec1b17235a525
+
+Useful links:
+- API documentation https://openweathermap.org/api
+- Details of your plan https://openweathermap.org/price
+- Please, note that 16-days daily forecast and History API are not available for Free subscribers
+
+
+Blog
+Support center & FAQ
+Contact us info@openweathermap.org.
+
+1. In PostMan GET
+
+api.openweathermap.org/data/2.5/weather?q=London&appid=e206053cc691d48f3deec1b17235a525&units=metric
+
+Для того, чтобы получить классы C# из JSON, вы можете воспользоваться сайтом json2csharp.
+http://json2csharp.com/#
+Типы могут не совпадать, подбором исключений полей из класса и сравнивая с данными можно определить где не тот тип
+GET
+api.openweathermap.org/data/2.5/weather?q=London&appid=e206053cc691d48f3deec1b17235a525&units=metric
+key   value
+q London
+appid e206053cc691d48f3deec1b17235a525
+units metric
+
+{
+    "coord": {
+        "lon": -0.13,
+        "lat": 51.51
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 9.86,
+        "feels_like": 4.37,
+        "temp_min": 8.89,
+        "temp_max": 11,
+        "pressure": 1007,
+        "humidity": 71
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 6.2,
+        "deg": 210,
+        "gust": 14.4
+    },
+    "clouds": {
+        "all": 90
+    },
+    "dt": 1584266032,
+    "sys": {
+        "type": 1,
+        "id": 1414,
+        "country": "GB",
+        "sunrise": 1584252833,
+        "sunset": 1584295494
+    },
+    "timezone": 0,
+    "id": 2643743,
+    "name": "London",
+    "cod": 200
+}
+
+
+public class Coord
+{
+    public double lon { get; set; }
+    public double lat { get; set; }
+}
+
+public class Weather
+{
+    public int id { get; set; }
+    public string main { get; set; }
+    public string description { get; set; }
+    public string icon { get; set; }
+}
+
+public class Main
+{
+    public double temp { get; set; }
+    public double feels_like { get; set; }
+    public double temp_min { get; set; }
+    public int temp_max { get; set; } 
+    public int pressure { get; set; }
+    public int humidity { get; set; }
+}
+
+public class Wind
+{
+    public double speed { get; set; }
+    public int deg { get; set; }
+    public double gust { get; set; }
+}
+
+public class Clouds
+{
+    public int all { get; set; }
+}
+
+public class Sys
+{
+    public int type { get; set; }
+    public int id { get; set; }
+    public string country { get; set; }
+    public int sunrise { get; set; }
+    public int sunset { get; set; }
+}
+
+public class RootObject
+{
+    public Coord coord { get; set; }
+    public List<Weather> weather { get; set; }
+    public string @base { get; set; }
+    public Main main { get; set; }
+    public int visibility { get; set; }
+    public Wind wind { get; set; }
+    public Clouds clouds { get; set; }
+    public int dt { get; set; }
+    public Sys sys { get; set; }
+    public int timezone { get; set; }
+    public int id { get; set; }
+    public string name { get; set; }
+    public int cod { get; set; }
+}

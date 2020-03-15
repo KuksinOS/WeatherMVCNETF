@@ -29,6 +29,14 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group">
+            <button type="button" id="btncurweather" class="btn btn-primary">Текущая погода</button>
+        </div>
+    </div>
+</div>
+
 
 <script>
     $(function () {
@@ -48,7 +56,13 @@
     });
 
 
+     $("#btncurweather").on("click", function (e) {
+                e.preventDefault();
+          const elem = $('#cities');  
+         const city = elem.val();
 
+         GetCurrentWeather(city); 
+     });
 
     function GetCountries() {
 
@@ -66,8 +80,8 @@
         });
     }
 
-        function GetCities(country) {
-            alert(country);
+    function GetCities(country) {
+            //alert(country);
         const elem = $('#cities');
         $.get("api/Cities", { code: country },  function (data) {
 
@@ -81,5 +95,16 @@
                 elem.selectpicker('refresh');
         });
     }
+
+
+    function GetCurrentWeather(city) {
+            alert(city);
+       
+        $.get("api/Weathers", { city: city },  function (data) {
+            alert('hgj');
+
+        });
+    }
+
 
 </script>

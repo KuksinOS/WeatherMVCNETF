@@ -82,11 +82,11 @@ namespace WeatherMVCNETF.App_Start
               }).InSingletonScope();
 
             kernel.Bind<IGraphQLHelper>().To<GraphQLHelper>();
-
-
             kernel.Bind<IAPIHelper>().To<APIHelper>();
+
             kernel.Bind<ICountryEndPoint>().To<CountryEndPoint>();
             kernel.Bind<ICityEndPoint>().To<CityEndPoint>();
+            kernel.Bind<IWeatherEndPoint>().To<WeatherEndPoint>();
 
         }
     }

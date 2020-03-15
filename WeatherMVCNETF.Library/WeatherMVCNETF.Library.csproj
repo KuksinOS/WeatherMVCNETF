@@ -143,13 +143,16 @@
     <Compile Include="Api\CityEndPoint.cs" />
     <Compile Include="Api\CountryEndPoint.cs" />
     <Compile Include="Api\GraphQLHelper.cs" />
+    <Compile Include="Api\WeatherEndPoint.cs" />
     <Compile Include="Interfaces\IAPIHelper.cs" />
     <Compile Include="Interfaces\ICityEndPoint.cs" />
     <Compile Include="Interfaces\ICountryEndPoint.cs" />
     <Compile Include="Interfaces\IGraphQLHelper.cs" />
+    <Compile Include="Interfaces\IWeatherEndPoint.cs" />
     <Compile Include="Models\Cities.cs" />
     <Compile Include="Models\Countries.cs" />
     <Compile Include="Models\iSO_3166_Country_Codes.cs" />
+    <Compile Include="Models\Weathers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +160,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FAQ\API.txt" />
     <Content Include="FAQ\Cities.txt" />
     <Content Include="FAQ\Countries.txt" />
     <Content Include="FAQ\GetCountriesIE.png" />
@@ -165,6 +169,8 @@
     <Content Include="FAQ\GraphQL.txt" />
     <Content Include="FAQ\Install.txt" />
     <Content Include="FAQ\Json.txt" />
+    <Content Include="FAQ\Weather.png" />
+    <Content Include="FAQ\Weathers.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
