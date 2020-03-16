@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using WeatherMVCNETF.Library.Interfaces;
+using WeatherMVCNETF.Models;
 
 namespace WeatherMVCNETF.ApiControllers
 {
@@ -22,17 +23,30 @@ namespace WeatherMVCNETF.ApiControllers
             _mapper = mapper;
         }
 
-        public async Task Get(string city)
+        public async Task<IHttpActionResult> Get(string city)
         {
-             await LoadCurrentWeather(city);
+            if (city == null)
+                return BadRequest();
+
+            var weatherdisplay = await LoadCurrentWeather(city);
+
+            if (weatherdisplay != null)
+                return Ok(weatherdisplay);
+            else
+                return NotFound();
+
+
         }
 
-        private async Task LoadCurrentWeather(string city)
+        private async Task<WeatherDisplayModel> LoadCurrentWeather(string city)
         {
-            var countryList = await _weatherEndPoint.GetCurrentWeather(city);
-            //var countries = _mapper.Map<List<CountryDisplayModel>>(countryList);
+           
+            var weather = await _weatherEndPoint.GetCurrentWeather(city);
+            var weatherdisplay = _mapper.Map<WeatherDisplayModel>(weather);
 
-         
+            return weatherdisplay;
+
+
         }
     }
 }

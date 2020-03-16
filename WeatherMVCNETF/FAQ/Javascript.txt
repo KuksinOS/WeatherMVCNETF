@@ -1,0 +1,3 @@
+﻿https://javascript.ru/string/charcodeat
+http://www.webpupil.ru/javascript_step_view.php?id=26
+

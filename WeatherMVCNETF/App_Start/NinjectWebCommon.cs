@@ -75,6 +75,12 @@ namespace WeatherMVCNETF.App_Start
                {
                 cfg.CreateMap<WeatherMVCNETF.Library.Models.Countries.Result, CountryDisplayModel>();
                 cfg.CreateMap<WeatherMVCNETF.Library.Models.Cities.Result, CityDisplayModel>();
+                cfg.CreateMap<WeatherMVCNETF.Library.Models.Weathers.Weather, Weather>();
+                cfg.CreateMap<WeatherMVCNETF.Library.Models.Weathers.RootObject, WeatherDisplayModel>()
+                    .ForMember("temp", opt => opt.MapFrom(source => source.main.temp))
+                    .ForMember("speed", opt => opt.MapFrom(source => source.wind.speed))
+                    .ForMember("weather", opt => opt.MapFrom(source => source.weather));
+
                    // tell automapper to use ninject when creating value converters and resolvers
                    cfg.ConstructServicesUsing(t => kernel.Get(t));
                });

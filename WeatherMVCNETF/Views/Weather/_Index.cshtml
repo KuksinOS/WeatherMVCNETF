@@ -2,10 +2,66 @@
 @{
     ViewBag.Title = "Weather";
 }
+<style>
+    .city {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        padding: 0px 20px 20px 20px;
+        margin: 0px 0px 50px 0px;
+        border: 1px solid;
+        border-radius: 5px;
+        box-shadow: 2px 2px #888888;
+    }
 
+        .city h1 {
+            line-height: 1.2
+        }
+
+        .city span {
+            padding-left: 20px
+        }
+
+        .city .row {
+            padding-top: 20px
+        }
+                     
+    .invisible {
+        visibility: hidden;
+    }
+
+</style>
 
 <h2>Weather</h2>
-
+<div class="city">
+    <div>
+        <h1 id="cityname"></h1>
+        <div class="row">
+            <table>
+                <tr>
+                    <td>
+                        <img id="icon" src="" alt="Content folder" class="img-thumbnail">
+                    </td>
+                    <td>
+                        <b><span id="weathermain"></span></b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b><span id="temperatureval"></span></b>
+                        <b><span style="display:inline" aria-label="°Celsius" aria-disabled="true">°C</span></b>
+                    </td>
+                    <td>                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="invisible"> 
+        <span id="errorval"></span>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-sm-3">
@@ -50,18 +106,29 @@
     $('#countries').on('change', function (e) {
         
         if (this.selectedIndex != 0) {
-           // alert(this.selectedIndex);
                         GetCities(this.options[this.selectedIndex].value);
+          }
+    });
+
+
+    $('#cities').on('change', function (e) {
+        
+        if (this.selectedIndex != 0) {
+            $("#cityname").html(this.options[this.selectedIndex].text);                      
           }
     });
 
 
      $("#btncurweather").on("click", function (e) {
                 e.preventDefault();
-          const elem = $('#cities');  
-         const city = elem.val();
-
-         GetCurrentWeather(city); 
+         const elem = $('#cities'); 
+         if (elem[0].selectedIndex != 0) {
+           //  const city = elem.val();
+             const city = elem[0].options[elem[0].selectedIndex].text;
+             GetCurrentWeather(city);
+         }
+         else
+             alert("Select City")
      });
 
     function GetCountries() {
@@ -98,13 +165,25 @@
 
 
     function GetCurrentWeather(city) {
-            alert(city);
+           // alert(city);
        
-        $.get("api/Weathers", { city: city },  function (data) {
-            alert('hgj');
+        $.get("api/Weathers", { city: city }, function (data) {
+            
+            var weather = new WeatherView(data);
+            $("#temperatureval").html(weather.temp);                      
+            //const pathtoimg = "../Content/Images/" + "01d@2x.png";
+            const pathtoimg = "../Content/Images/" + weather.weather[0].icon + String.fromCharCode(64) + "2x.png";            
+            $("#icon").attr("src", pathtoimg);  
+            debugger
+            $("#weathermain").html(weather.weather[0].main);      
 
         });
     }
 
-
+// Constructor function for Weather objects
+    function WeatherView(data) {
+  this.temp = data.temp;
+  this.speed = data.speed;
+  this.weather = data.weather;
+}
 </script>

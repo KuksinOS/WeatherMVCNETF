@@ -26,7 +26,7 @@ namespace WeatherMVCNETF.Library.Api
             string token = "e206053cc691d48f3deec1b17235a525";
 
             List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
-            parameters.Add(new KeyValuePair<String, object>("q", "London"));
+            parameters.Add(new KeyValuePair<String, object>("q", $"{city}"));
             parameters.Add(new KeyValuePair<String, object>("units", "metric"));
             parameters.Add(new KeyValuePair<String, object>("appid", $"{token}"));
 
@@ -39,9 +39,9 @@ namespace WeatherMVCNETF.Library.Api
                     //return null;
 
                     var result = await response.Content.ReadAsAsync<WeatherMVCNETF.Library.Models.Weathers.RootObject>();
-                    // return result;
+                    return result;
 
-                    return null;
+                    
                 }
                 else
                 {

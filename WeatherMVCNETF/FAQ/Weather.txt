@@ -9,3 +9,8 @@ https://www.codeproject.com/Articles/1274513/Angular-Fundamentals-Building-an-An
 https://www.codeproject.com/Articles/1276248/Angular-7-with-NET-Core-2-2-Global-Weather-Part-2
 https://www.codeproject.com/Articles/1278829/Angular-7-with-NET-Core-2-2-Global-Weather-Part-3
 
+
+//
+(http://openweathermap.org/).
+//Icon list
+https://openweathermap.org/weather-conditions

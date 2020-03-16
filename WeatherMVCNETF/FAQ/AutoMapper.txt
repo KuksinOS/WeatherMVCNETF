@@ -8,6 +8,7 @@ https://stackoverflow.com/questions/42812430/automapper-in-webapi-controller
 https://metanit.com/sharp/mvc5/23.4.php
 //111
 https://stackoverflow.com/questions/43560555/how-do-i-use-ninject-to-inject-automapper-mapper-in-place-of-imapper
+https://metanit.com/sharp/mvc5/23.4.php
 
 Your bindings are configured to construct a new instance of Mapper for each request, but you've configured a static Mapper. Here's a configuration similar to one I'm using.
 
@@ -25,3 +26,7 @@ kernel.Bind<IMapper>()
 You can then remove your static configuration
 
 Mapper.Initialize(c => c.AddProfile<MappingProfile>());
+
+//Automapper List
+https://stackoverflow.com/questions/9394833/automapper-with-nested-child-list
+

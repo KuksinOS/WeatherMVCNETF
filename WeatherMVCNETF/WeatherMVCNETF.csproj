@@ -186,6 +186,24 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\01d%402x.png" />
+    <Content Include="Content\Images\01n%402x.png" />
+    <Content Include="Content\Images\02d%402x.png" />
+    <Content Include="Content\Images\02n%402x.png" />
+    <Content Include="Content\Images\03d%402x.png" />
+    <Content Include="Content\Images\03n%402x.png" />
+    <Content Include="Content\Images\04d%402x.png" />
+    <Content Include="Content\Images\04n%402x.png" />
+    <Content Include="Content\Images\09d%402x.png" />
+    <Content Include="Content\Images\09n%402x.png" />
+    <Content Include="Content\Images\10d%402x.png" />
+    <Content Include="Content\Images\10n%402x.png" />
+    <Content Include="Content\Images\11d%402x.png" />
+    <Content Include="Content\Images\11n%402x.png" />
+    <Content Include="Content\Images\13d%402x.png" />
+    <Content Include="Content\Images\13n%402x.png" />
+    <Content Include="Content\Images\50d%402x.png" />
+    <Content Include="Content\Images\50n%402x.png" />
     <Content Include="Content\Site.css" />
     <Content Include="FAQ\Area.txt" />
     <Content Include="FAQ\AutoMapper.txt" />
@@ -194,8 +212,11 @@
     <Content Include="FAQ\bundles.txt" />
     <Content Include="FAQ\ChangeRenderBody.txt" />
     <Content Include="FAQ\Countries.txt" />
+    <Content Include="FAQ\css.txt" />
     <Content Include="FAQ\DependencyInjection.txt" />
     <Content Include="FAQ\GIT.txt" />
+    <Content Include="FAQ\Image.txt" />
+    <Content Include="FAQ\Javascript.txt" />
     <Content Include="FAQ\MultiLanguage.txt" />
     <Content Include="FAQ\RenderPartialViewJQuery.txt" />
     <Content Include="FAQ\SammyJSRouting.txt" />
@@ -453,6 +474,7 @@
     </Compile>
     <Compile Include="Models\CityDisplayModel.cs" />
     <Compile Include="Models\CountryDisplayModel.cs" />
+    <Compile Include="Models\WeatherDisplayModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
